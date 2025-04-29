@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toda a Beleza de Sarah</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="logo">Beleza de Sarah</div>
+    <nav>
+      <ul>
+        <li><a href="#galeria">Galeria</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#contato">Contato</a></li>
+        <button id="theme-toggle" class="theme-toggle">🌙</button>
+      </ul>
+    </nav>
+  </header>
+  
+
+  <section class="hero">
+    <h1>Toda a Beleza de Sarah</h1>
+    <p>"Esse cabelo, esses olhos,...
+      Essa mulher, essa menina
+      Me deixa... cheio de razão
+      Éééé..."</p>
+  </section>
+  <hr>
+
+  <section id="galeria" class="gallery">
+    <div class="gallery-item"><img src="./assets/img/1.jpg" alt="Foto 1"></div>
+    <div class="gallery-item"><img src="./assets/img/2.jpg" alt="Foto 2"></div>
+    <div class="gallery-item"><img src="./assets/img/3.jpg" alt="Foto 3"></div>
+    <div class="gallery-item"><img src="./assets/img/4.jpg" alt="Foto 4"></div>
+  </section>
+
+  <section id="sobre" class="about">
+    <h2>Sobre Sarah</h2>
+    <p>Sarah é um ícone de beleza, autenticidade e elegância. Este espaço foi criado para exibir momentos incríveis, com charme e estilo únicos que encantam a todos.</p>
+  </section>
+
+  <hr>
+
+  <section id="contato" class="contact">
+    <div class="conteudo">
+      <h2>Entre em Contato</h2>
+      <p>Email: sarahnascimento784@gmail.com</p>
+      <p>Instagram: @sarah_t1na</p>
+    </div>
+    <div class="spotify-player">
+      <img class="cover" src="./assets/img/bebeto.jpg" alt="Capa">
+      <div class="player-info">
+        <div class="track-details">
+          <span class="track-title">Bebeto - Água Marinha</span>
+          <div class="time">
+            <span id="current-time">0:00</span>
+            <span id="duration">3:07</span>
+          </div>
+        </div>
+        <input type="range" id="progress-bar" value="0" min="0" max="100">
+        <button id="play-pause-button">❚❚</button>
+      </div>
+      <audio id="music-player" autoplay loop>
+        <source src="./assets/audio/aguaMarinha.mp3" type="audio/mpeg">
+        Seu navegador não suporta o player de áudio.
+      </audio>
+    </div>    
+  </section>
+  
+
+  <footer>
+    <div class="socials">
+      <a href="https://www.instagram.com/sarah_t1na/"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.tiktok.com/@sarah_t1na"><i class="fab fa-tiktok"></i></a>
+      <a href="https://www.threads.com/@sarah_t1na?xmt=AQGzmElFdUKCVEd3HE3kcRnll15NEWQ4ze8nxgSjNZvPUPU"><i class="fab fa-threads"></i></a>
+    </div>
+    <p>&copy; 2025 Toda a Beleza de Sarah. Todos os direitos reservados.</p>
+  </footer>
+
+  <script src="./assets/js/script.js"></script>
+</body>
+</html>
