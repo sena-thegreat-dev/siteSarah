@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toda a Beleza de Sarah</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="logo">A Beleza de Sarah</div>
+    <div class="menu-toggle" id="mobile-menu">
+      <i class="fas fa-bars"></i>
+    </div>
+    <nav id="nav-menu">
+      <ul>
+        <li><a href="#galeria">Galeria</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#contato">Contato</a></li>
+        <li><a href="nos.html">Nós</a></li>
+        <button id="theme-toggle" class="theme-toggle">🌙</button>
+      </ul>
+    </nav>
+  </header>
+  
+
+  <section class="hero">
+    <h1>Toda a Beleza de Sarah</h1>
+    <p>"Esse cabelo, esses olhos,...
+      Essa mulher, essa menina
+      Me deixa... cheio de razão
+      Éééé..."</p>
+    <div class="beach-banner">
+      <img src="./assets/img/banner.png" alt="Imagem de Praia" />
+    </div>
+  </section>  
+  <hr>
+
+  <section id="galeria" class="gallery">
+    <div class="gallery-item-1"><img src="./assets/img/1.jpeg" alt="Foto 1"></div>
+    <div class="gallery-item-1"><img src="./assets/img/2.jpeg" alt="Foto 2"></div>
+    <div class="gallery-item-1"><img src="./assets/img/3.jpg" alt="Foto 3"></div>
+    <div class="gallery-item-1"><img src="./assets/img/4.jpg" alt="Foto 4"></div>
+  </section>
+  <div class="revelar-container" style="text-align: center; margin: 2rem 0;">
+    <button id="revelar-fraqueza" class="btn-revelar">Clique para revelar as fraquezas</button>
+  </div>
+  
+  
+  <h2 id="princesa" style="text-align: center;display: none;"></h2>
+  <section id="galeria-musicas" class="gallery" style="display: none;">
+    <div class="gallery-item-2">
+        <img src="./assets/img/jasmin1.png">
+    </div>
+    <div class="gallery-item-2">
+        <img src="./assets/img/jasmin2.png">
+    </div>
+    <div class="gallery-item-2">
+        <img src="./assets/img/jasmin3.jpeg">
+    </div>
+    <div class="gallery-item-2">
+        <img src="./assets/img/jasmin4.png">
+    </div>
+  </section>
+  
+  <section id="sobre" class="about">
+    <h2>Sobre Sarah</h2>
+    <p>Sarah é um ícone de beleza, autenticidade e elegância. Este espaço foi criado para exibir momentos incríveis, com charme e estilo únicos que encantam a todos.</p>
+    <br>
+    <p>Seus olhos são pontas de água marinha, você vai ser minha e eu vou te ganhar!</p>
+  </section>
+
+  <hr>
+
+  <section id="contato" class="contact">
+    <div class="conteudo">
+      <h2>Entre em Contato</h2>
+      <p>Instagram: @sarah_t1na</p>
+      <p>Email: sarahnascimento784@gmail.com</p>
+    </div>
+    <div class="spotify-player">
+      <img class="cover" id="cover" src="./assets/img/bebeto.jpg" alt="Capa">
+
+      <div class="player-info">
+        <div class="track-details">
+          <span class="track-title" id="track-title">Bebeto - Água Marinha</span>
+          <div class="time">
+            <span id="current-time">0:00</span>
+            <span id="duration">0:00</span>
+          </div>
+        </div>
+
+        <input type="range" id="progress-bar" value="0" min="0" max="100">
+
+        <div class="controls">
+          <button id="prev-button">⏮</button>
+          <button id="play-pause-button">❚❚</button>
+          <button id="next-button">⏭</button>
+        </div>
+      </div>
+
+      <audio id="music-player"></audio>
+    </div>  
+  </section>
+  
+
+  <footer>
+    <div class="socials">
+      <a href="https://www.instagram.com/sarah_t1na/"><i class="fab fa-instagram"></i></a>
+    </div>
+    <p>&copy; 2026 Toda a Beleza de <a href="https://www.instagram.com/sarah_t1na/">Sarah</a>. Feito por <a href="https://www.instagram.com/sena_thegreat/">Gabriel</a>.</p>
+  </footer>
+
+  <script src="./assets/js/script.js"></script>
+</body>
+</html>

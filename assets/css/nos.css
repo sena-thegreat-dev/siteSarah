@@ -1,0 +1,580 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* :root {
+  --bg-color: #f7f7f7;
+  --text-color: #333;
+  --header-bg: linear-gradient(135deg, #fa5fff, #fa7bfe);
+  --card-bg: #fff;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --shadow-hover: rgba(0, 0, 0, 0.2);
+  --section-bg: #ffffff;
+  --section-text: #333333;
+} */
+
+.beach-banner {
+  margin-top: 20px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 128, 128, 0.2);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.beach-banner img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+:root {
+  --bg-color: #f0f9ff; /* azul bem claro */
+  --text-color: #2c3e50; /* azul profundo */
+  --header-bg: linear-gradient(183deg, #002fffbb, #0d35b634); /* azul do mar e sol */
+  --card-bg: #ffffff;
+  --shadow-color: rgba(0, 128, 128, 0.1); /* tom oceânico suave */
+  --shadow-hover: rgba(0, 128, 128, 0.3);
+  --section-bg: #ffffff;
+  --section-text: #2c3e50;
+}
+.btn-revelar {
+  background-color: #e9cc6d;
+  color: white;
+  padding: 12px 24px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-revelar:hover {
+  background-color: #ffa726;
+}
+
+body.dark-mode {
+  --bg-color: #140b0b; /* Preto com um toque bem sutil de vermelho/aquecido */
+  --text-color: #f5e6e6; /* Branco levemente rosado para não cansar a vista */
+  --header-bg: linear-gradient(135deg, #4a0e0e, #1a0505); /* Gradiente vinho escuro */
+  --card-bg: #1c1111;
+  --shadow-color: rgba(220, 20, 60, 0.15); /* Sombra vermelha suave */
+  --shadow-hover: rgba(220, 20, 60, 0.45); /* Sombra vermelha vibrante ao passar o mouse */
+  --section-bg: #180d0d;
+  --section-text: #e8d5d5;
+}
+
+body.dark-mode .theme-toggle {
+  color: #ff4d4d; 
+}
+
+body.dark-mode nav a:hover {
+  color: #ff4d4d;
+}
+
+body.dark-mode .socials i:hover,
+body.dark-mode .play-pause:hover {
+  color: #ff4d4d;
+}
+
+body.dark-mode #progress-bar::-webkit-slider-thumb {
+  background: #ff4d4d;
+}
+
+body.dark-mode #play-pause-button,
+body.dark-mode .controls button {
+  background-color: #a31010; /* Vermelho escuro */
+}
+
+body.dark-mode #play-pause-button:hover,
+body.dark-mode .controls button:hover {
+  background-color: #ff4d4d; /* Vermelho vibrante no hover */
+}
+
+body.dark-mode .gallery-item {
+  border: 1px solid rgba(255, 77, 77, 0.1); /* Bordinha vermelha sutil */
+}
+
+body.dark-mode .gallery-item::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  /* Textura de animal print via URL (padrão transparente) */
+  background-image: url('https://www.transparenttextures.com/patterns/leopard.png');
+  opacity: 0.25; /* Transparência ideal para ficar charmoso e não poluir */
+  pointer-events: none; /* Garante que as fotos ainda possam ser clicadas */
+  mix-blend-mode: color-dodge; /* Mescla a estampa com a cor de fundo do card */
+  transition: opacity 0.3s ease;
+}
+
+body.dark-mode .gallery-item:hover::after {
+  opacity: 0.5;
+}
+
+body.dark-mode .btn-revelar {
+  background-color: #7a0000;
+  color: #e9cc6d; /* O tom dourado que você já usou */
+  border: 1px solid #e9cc6d;
+}
+
+body.dark-mode .btn-revelar:hover {
+  background-color: #ff4d4d;
+  color: #ffffff;
+  border-color: #ff4d4d;
+  box-shadow: 0 0 15px rgba(255, 77, 77, 0.6); /* Brilho vermelho */
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.theme-toggle {
+  top: 20px;
+  right: 20px;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #fff;
+  z-index: 1000;
+}
+
+body.dark-mode .theme-toggle {
+  color: #ffd700;
+}
+
+header {
+  background: var(--header-bg);
+  padding: 20px 40px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+.header-hidden {
+  transform: translateY(-100%);
+  transition: transform 0.3s ease;
+}
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #ddd;
+}
+
+/* Seções adaptáveis ao modo escuro */
+section {
+  background-color: var(--section-bg);
+  color: var(--section-text);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+section#hero,
+section#sobre,
+section#contato {
+  padding: 60px 20px;
+}
+
+.hero {
+  padding: 140px 40px 60px;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+
+.hero p {
+  font-size: 1.2rem;
+  color: var(--section-text);
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 40px;
+}
+
+.gallery-item {
+  background-color: var(--card-bg);
+  position: relative;
+  box-shadow: 0 6px 12px var(--shadow-color);
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  cursor: pointer;
+  height: 300px; /* altura padronizada */
+}
+
+.gallery-item:hover {
+  box-shadow: 0 8px 16px var(--shadow-hover);
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+.gallery-item img,
+.gallery-item video {
+  width: 100%;
+  transition: transform 0.3s ease;
+  height: auto;
+  border-radius: 12px;
+  display: block;
+  object-fit: cover;
+}
+
+.gallery-item img,
+.gallery-item video {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: cover;
+}
+
+.about,
+.contact {
+  padding: 60px 40px;
+}
+
+.contact {
+  display: flex;
+  justify-content: space-between;
+}
+
+.about h2,
+.contact h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.about p {
+  font-size: 1rem;
+  color: var(--section-text);
+}
+
+footer {
+  background: #111;
+  color: #fff;
+  padding: 30px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.socials i {
+  font-size: 1.4rem;
+  margin: 0 10px;
+  color: #fff;
+  transition: color 0.3s;
+}
+
+/* .socials i:hover {
+  color: #fa7bfe;
+} */
+
+.socials i:hover {
+  color: #00c3ff;
+}
+
+.play-pause:hover {
+  color: #00c3ff;
+}
+
+
+/* Estilo do player de música */
+.audio-player {
+  display: flex;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 20px;
+  width: 300px;
+  right: 40px;
+  bottom: 20px;
+}
+
+.thumbnail {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  margin-right: 15px;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.play-pause {
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: white;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+/* .play-pause:hover {
+  color: #fa7bfe;
+} */
+
+audio {
+  display: none;
+}
+
+.spotify-player {
+  display: flex;
+  align-items: center;
+  background-color: #121212;
+  color: white;
+  border-radius: 12px;
+  padding: 12px;
+  gap: 16px;
+  max-width: 500px;
+  right: 40px;
+  bottom: 40px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.spotify-player .cover {
+  width: 60px;
+  height: 60px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.player-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.track-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.track-title {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #fff;
+}
+
+.time {
+  font-size: 0.75rem;
+  color: #aaa;
+  left: -171px;
+  top: 49px;
+  position: relative;
+}
+
+#progress-bar {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 5px;
+  background: #535353;
+  border-radius: 5px;
+  margin: 8px 0;
+  cursor: pointer;
+}
+
+#progress-bar::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 12px;
+  width: 12px;
+  background: #1db954;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+#play-pause-button {
+  align-self: flex-end;
+  background-color: #1db954;
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#play-pause-button:hover {
+  background-color: #1ed760;
+}
+
+@media (max-width: 768px) {
+  .spotify-player {
+    right: 20px;
+    bottom: 20px;
+    max-width: 90%;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  #play-pause-button {
+    align-self: center;
+  }
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+  }
+  .audio-player {
+    width: 240px;
+    right: 20px;
+  }
+  .thumbnail {
+    width: 40px;
+    height: 40px;
+  }
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .hero {
+    padding: 120px 20px 40px;
+  }
+
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .gallery {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+
+  .about,
+  .contact {
+    padding: 40px 20px;
+  }
+
+  .about h2,
+  .contact h2 {
+    font-size: 1.6rem;
+  }
+
+  .about p {
+    font-size: 0.95rem;
+  }
+
+  footer {
+    padding: 20px;
+    font-size: 0.9rem;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    font-size: 1.3rem;
+  }
+
+  .theme-toggle {
+    font-size: 1.2rem;
+    top: 15px;
+    right: 15px;
+  }
+
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero p {
+    font-size: 0.9rem;
+  }
+
+  .about h2,
+  .contact h2 {
+    font-size: 1.4rem;
+  }
+
+  .socials i {
+    font-size: 1.2rem;
+  }
+}
+.viagens-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  justify-content: center;
+}
+
+.viagem-card {
+  background-color: var(--card-bg);
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 6px 12px var(--shadow-color);
+  transition: box-shadow 0.3s ease;
+  text-align: center;
+  width: 280px;
+}
+
+.viagem-card h3 {
+  margin-bottom: 10px;
+  color: var(--text-color);
+}
+
+.viagem-card button {
+  background-color: #0077ff;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.viagem-card button:hover {
+  background-color: #005dc1;
+}
