@@ -1,9 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // --- ELEMENTOS DO DOM ---
   const galleryItems = document.querySelectorAll('.gallery-item img');
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = document.getElementById('lightbox-img');
   const closeBtn = document.querySelector('.lightbox .close');
   const themeToggle = document.getElementById('theme-toggle');
+  // Player
   const audio = document.getElementById("music-player");
   const playPauseBtn = document.getElementById("play-pause-button");
   const currentTimeElem = document.getElementById("current-time");
@@ -13,28 +15,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const prevBtn = document.getElementById("prev-button");
   const title = document.getElementById("track-title");
   const cover = document.getElementById("cover");
+  // Elementos específicos das páginas
   const btnRevelar = document.getElementById("revelar-fraqueza");
   const galeriaMusicas = document.getElementById("galeria-musicas");
   const mobileMenu = document.getElementById('mobile-menu');
   const navMenu = document.getElementById('nav-menu');
+  const btnsGaleria = document.querySelectorAll(".abrir-galeria");
 
-  mobileMenu.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-  });
-
-  // Opcional: Fechar o menu quando clicar em um link
-  const navLinks = document.querySelectorAll('nav ul li a');
-  navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      navMenu.classList.remove('active');
-    });
-  });
-
-  btnRevelar.addEventListener("click", () => {
-    galeriaMusicas.style.display = "grid"; // ou "block", dependendo do layout da galeria
-    btnRevelar.style.display = "none"; // Esconde o botão após revelar
-  });
-
+  // --- LISTA DE MÚSICAS ---
   const songs = [
     {
       title: "Bebeto - Água Marinha",
@@ -139,7 +127,7 @@ document.addEventListener("DOMContentLoaded", () => {
     {
       title: "Jorge Ben Jor - Domingas",
       src: "./assets/audio/Jorge Ben Jor - Domingas.mp3",
-      cover: "./assets/img/capas/jorgeben2.jfif"
+      cover: "./assets/img/capas/jorgeben2.jpg"
     },
     {
       title: "Péricles - Eu Te Amo",
@@ -270,75 +258,226 @@ document.addEventListener("DOMContentLoaded", () => {
       title: "Miguel - Sure Thing",
       src: "./assets/audio/Miguel - Sure Thing.mp3",
       cover: "./assets/img/capas/miguel.jpg"
+    },
+    {
+      title: "Grupo Revelação - Casal Perfeito",
+      src: "./assets/audio/Grupo Revelação - Casal Perfeito.mp3",
+      cover: "./assets/img/capas/revelacao2.jpg"
+    },
+    {
+      title: "Zeca Pagodinho - Não Sou Mais Disso",
+      src: "./assets/audio/Zeca Pagodinho - Não Sou Mais Disso.mp3",
+      cover: "./assets/img/capas/zeca4.jpg"
+    },
+    {
+      title: "Zeca Pagodinho - Verdade",
+      src: "./assets/audio/Zeca Pagodinho - Verdade.mp3",
+      cover: "./assets/img/capas/zeca4.jpg"
+    },
+    {
+      title: "Alcione - Meu Vício é Você",
+      src: "./assets/audio/Alcione - Meu Vício é Você.mp3",
+      cover: "./assets/img/capas/alcione2.jpg"
+    },
+    {
+      title: "Athalyba e a Firma - Feminina",
+      src: "./assets/audio/Athalyba e a Firma - Feminina.mp3",
+      cover: "./assets/img/capas/athalyba.jpg"
+    },
+    {
+      title: "Bebeto - Minha Preta",
+      src: "./assets/audio/Bebeto - Minha Preta.mp3",
+      cover: "./assets/img/capas/bebeto.jpg"
+    },
+    {
+      title: "Flora Matos - Piloto",
+      src: "./assets/audio/Flora Matos - Piloto.mp3",
+      cover: "./assets/img/capas/flora.jpg"
+    },
+    {
+      title: "Exaltasamba - Até o Sol Quis Ver",
+      src: "./assets/audio/Exaltasamba - Até o Sol Quis Ver.mp3",
+      cover: "./assets/img/capas/exalta4.jpg"
     }
   ];
 
-let currentSong = 0;
-
-nextBtn.addEventListener("click", () => {
-  currentSong = (currentSong + 1) % songs.length;
-  loadSong(currentSong);
-  audio.play();
-  playPauseBtn.textContent = "❚❚";
-});
-
-prevBtn.addEventListener("click", () => {
-  currentSong = (currentSong - 1 + songs.length) % songs.length;
-  loadSong(currentSong);
-  audio.play();
-  playPauseBtn.textContent = "❚❚";
-});
-audio.addEventListener("ended", () => {
-  nextBtn.click();
-});
-
-  function formatTime(seconds) {
-    const minutes = Math.floor(seconds / 60);
-    const secs = Math.floor(seconds % 60).toString().padStart(2, "0");
-    return `${minutes}:${secs}`;
+  // --- NAVEGAÇÃO E REVELAR (Seguros com IFs) ---
+  if (btnsGaleria.length > 0) {
+    btnsGaleria.forEach(btn => {
+      btn.addEventListener("click", () => {
+        const galeriaId = btn.getAttribute("data-galeria");
+        const galeria = document.getElementById(galeriaId);
+        if (galeria) {
+          galeria.style.display = "grid";
+          btn.style.display = "none";
+        }
+      });
+    });
   }
 
-  audio.addEventListener("loadedmetadata", () => {
-    durationElem.textContent = formatTime(audio.duration);
-    progressBar.max = audio.duration;
-  });
+  if (mobileMenu && navMenu) {
+    mobileMenu.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+    });
 
-  audio.addEventListener("timeupdate", () => {
-    currentTimeElem.textContent = formatTime(audio.currentTime);
-    progressBar.value = audio.currentTime;
-  });
+    const navLinks = document.querySelectorAll('nav ul li a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+      });
+    });
+  }
 
-  progressBar.addEventListener("input", () => {
-    audio.currentTime = progressBar.value;
-  });
+  if (btnRevelar && galeriaMusicas) {
+    btnRevelar.addEventListener("click", () => {
+      galeriaMusicas.style.display = "grid";
+      btnRevelar.style.display = "none";
+    });
+  }
 
-  playPauseBtn.addEventListener("click", () => {
-    if (audio.paused) {
-      audio.play();
-      playPauseBtn.textContent = "❚❚";
-    } else {
-      audio.pause();
-      playPauseBtn.textContent = "▶";
+  // --- PLAYER DE ÁUDIO ---
+  if (audio && playPauseBtn) {
+    let currentSong = parseInt(localStorage.getItem("currentSong")) || 0;
+    let savedTime = parseFloat(localStorage.getItem("musicTime")) || 0;
+    const wasPlaying = localStorage.getItem("musicPlaying") === "true";
+
+    function formatTime(seconds) {
+      const minutes = Math.floor(seconds / 60);
+      const secs = Math.floor(seconds % 60).toString().padStart(2, "0");
+      return `${minutes}:${secs}`;
     }
-  });
-  // Tema: aplicar tema salvo
-  const currentTheme = localStorage.getItem('theme');
-  if (currentTheme === 'dark') {
-    document.body.classList.add('dark-mode');
-    themeToggle.textContent = '🌴';
+
+    function loadSong(index) {
+      if (!songs[index]) return;
+      const song = songs[index];
+
+      audio.pause();
+      audio.src = song.src;
+      audio.load();
+
+      if (title) title.textContent = song.title;
+      if (cover) cover.src = song.cover;
+
+      if (progressBar) progressBar.value = 0;
+      if (currentTimeElem) currentTimeElem.textContent = "0:00";
+    }
+
+    // Carrega a música inicial salva
+    loadSong(currentSong);
+
+    // Ajusta o tempo e retoma a execução quando os dados do áudio carregarem
+    audio.addEventListener("loadedmetadata", () => {
+      if (durationElem) durationElem.textContent = formatTime(audio.duration);
+      if (progressBar) progressBar.max = audio.duration;
+      
+      // Aplica o tempo salvo APENAS se houver um tempo guardado (na troca de página)
+      if (savedTime > 0 && savedTime < audio.duration) {
+        audio.currentTime = savedTime;
+        savedTime = 0; // Reseta logo após aplicar para não afetar as próximas músicas
+      }
+
+      // Tenta dar Play se estava tocando anteriormente
+      if (wasPlaying) {
+        const playPromise = audio.play();
+        if (playPromise !== undefined) {
+          playPromise
+            .then(() => {
+              playPauseBtn.textContent = "❚❚";
+            })
+            .catch(() => {
+              playPauseBtn.textContent = "▶";
+              localStorage.setItem("musicPlaying", "false");
+            });
+        }
+      } else {
+        playPauseBtn.textContent = "▶";
+      }
+    });
+
+    // Atualiza progresso e LocalStorage continuamente
+    audio.addEventListener("timeupdate", () => {
+      if (currentTimeElem) currentTimeElem.textContent = formatTime(audio.currentTime);
+      if (progressBar) progressBar.value = audio.currentTime;
+
+      localStorage.setItem("musicTime", audio.currentTime);
+      localStorage.setItem("currentSong", currentSong);
+    });
+
+    audio.addEventListener("play", () => {
+      localStorage.setItem("musicPlaying", "true");
+      playPauseBtn.textContent = "❚❚";
+    });
+
+    audio.addEventListener("pause", () => {
+      localStorage.setItem("musicPlaying", "false");
+      playPauseBtn.textContent = "▶";
+    });
+
+    if (playPauseBtn) {
+      playPauseBtn.addEventListener("click", () => {
+        if (audio.paused) {
+          audio.play();
+        } else {
+          audio.pause();
+        }
+      });
+    }
+
+    if (progressBar) {
+      progressBar.addEventListener("input", () => {
+        audio.currentTime = progressBar.value;
+      });
+    }
+
+    // Função auxilar para mudar de faixa e zerar o tempo salvo
+    function changeTrack(newIndex) {
+      savedTime = 0;
+      localStorage.setItem("musicTime", 0);
+      currentSong = newIndex;
+      loadSong(currentSong);
+      audio.play();
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener("click", () => {
+        const nextIndex = (currentSong + 1) % songs.length;
+        changeTrack(nextIndex);
+      });
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener("click", () => {
+        const prevIndex = (currentSong - 1 + songs.length) % songs.length;
+        changeTrack(prevIndex);
+      });
+    }
+
+    audio.addEventListener("ended", () => {
+      if (nextBtn) {
+        nextBtn.click();
+      }
+    });
   }
 
-  // Alternar tema
-  themeToggle.addEventListener('click', () => {
-    document.body.classList.toggle('dark-mode');
-    const isDark = document.body.classList.contains('dark-mode');
-    themeToggle.textContent = isDark ? '🌴' : '🌙';
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
-  });
+  // --- TEMA (DARK/LIGHT) ---
+  if (themeToggle) {
+    const currentTheme = localStorage.getItem('theme');
+    if (currentTheme === 'dark') {
+      document.body.classList.add('dark-mode');
+      themeToggle.textContent = '🌴';
+    }
 
-  // Funções Lightbox
+    themeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      const isDark = document.body.classList.contains('dark-mode');
+      themeToggle.textContent = isDark ? '🌴' : '🌙';
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    });
+  }
+
+  // --- LIGHTBOX ---
   function openLightbox(src, alt) {
-    if(!lightbox) return; // Se não existir, não faz nada
+    if (!lightbox || !lightboxImg) return;
     lightboxImg.src = src;
     lightboxImg.alt = alt || "Imagem ampliada";
     lightbox.classList.add('active');
@@ -346,7 +485,7 @@ audio.addEventListener("ended", () => {
   }
 
   function closeLightbox() {
-    if(!lightbox) return; // Se não existir, não faz nada
+    if (!lightbox || !lightboxImg) return;
     lightbox.classList.remove('active');
     lightboxImg.src = "";
     document.body.style.overflow = '';
@@ -358,62 +497,33 @@ audio.addEventListener("ended", () => {
     });
   });
 
-  if (closeBtn) {
-    closeBtn.addEventListener('click', closeLightbox);
-  };
+  if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
   if (lightbox) {
     lightbox.addEventListener('click', (e) => {
-      if (e.target === lightbox) {
-        closeLightbox();
-      }
+      if (e.target === lightbox) closeLightbox();
     });
-  };
+  }
 
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+    if (e.key === 'Escape' && lightbox && lightbox.classList.contains('active')) {
       closeLightbox();
     }
   });
 
+  // --- HEADER SCROLL ---
   let lastScrollTop = 0;
   const header = document.querySelector(".header");
-  window.addEventListener("scroll", () => {
-    const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+  if (header) {
+    window.addEventListener("scroll", () => {
+      const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
 
-    if (currentScroll > lastScrollTop) {
-      // Rolando para baixo
-      header.classList.add("header-hidden");
-    } else {
-      // Rolando para cima
-      header.classList.remove("header-hidden");
-    }
+      if (currentScroll > lastScrollTop) {
+        header.classList.add("header-hidden");
+      } else {
+        header.classList.remove("header-hidden");
+      }
 
-    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
-  });
-
-  function loadSong(index) {
-    const song = songs[index];
-
-    audio.pause();
-    audio.src = song.src;
-    audio.load();
-
-    title.textContent = song.title;
-    cover.src = song.cover;
-
-    progressBar.value = 0;
-    currentTimeElem.textContent = "0:00";
-  }
-  loadSong(currentSong);
-
-  let playPromise = audio.play();
-
-  if (playPromise !== undefined) {
-    playPromise.then(_ => {
-      playPauseBtn.textContent = "❚❚";
-    })
-    .catch(error => {
-      console.log("Autoplay bloqueado");
+      lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
     });
   }
 });

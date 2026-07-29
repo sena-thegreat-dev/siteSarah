@@ -1,4 +1,3 @@
-</html>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -7,21 +6,35 @@
   <title>Nossas Viagens</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="stylesheet" href="./assets/css/nos.css" />
+  <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
 <body>
   <header class="header">
-    <div class="logo">Nós</div>
-    <nav>
+    <div class="logo">Eu & Você, Sempre</div>
+    <div class="menu-toggle" id="mobile-menu">
+      <i class="fas fa-bars"></i>
+    </div>
+    <nav id="nav-menu">
       <ul>
         <li><a href="index.html">Início</a></li>
         <li><a href="#viagens">Viagens</a></li>
-        <button id="theme-toggle" class="theme-toggle" aria-label="Alternar tema">🌙</button>
+        <button id="theme-toggle" class="theme-toggle">🌙</button>
       </ul>
     </nav>
   </header>
 
-  <main style="padding-top: 120px;">
+  
+  <section class="hero">
+    <h1>Casal Perfeito</h1>
+    <p>"E te amar, é tudo que eu mais queria, realizar todas as suas fantasias <br>
+      Quero acordar de um lindo sonho de prazer, deixar o amor acontecer e no seu corpo viajar"
+    </p>
+    <div class="beach-banner">
+      <img src="./assets/img/banner2.png" alt="Nosso Banner" />
+    </div>
+  </section>  
+  <hr>
+  <main>
     <section id="viagens" class="about">
       <h2>Nossas Viagens</h2>
       <p style="margin-bottom: 2rem;">Cada lugar, um capítulo da nossa história 💙</p>
@@ -33,32 +46,91 @@
           <button class="abrir-galeria" data-galeria="galeria-campos">Ver Fotos</button>
         </article>
 
-        <!-- Futuras viagens podem ser adicionadas abaixo
-        <article class="viagem-card" data-destino="...">
-          <h3>...</h3>
-          <p>...</p>
-          <button class="abrir-galeria" data-galeria="galeria-...">Ver Fotos</button>
+        <article class="viagem-card" data-destino="bertioga">
+          <h3>Bertioga</h3>
+          <p>25/07/26 - 26/07/26</p>
+          <button class="abrir-galeria" data-galeria="galeria-bertioga">Ver Fotos</button>
         </article>
-        -->
+  
       </div>
     </section>
 
     <!-- Galeria Campos -->
     <section id="galeria-campos" class="gallery" style="display: none;">
-      <h3 style="grid-column: 1 / -1; text-align: center;">Nossa Galeria</h3>
-
-      <div class="gallery-item"><img src="./assets/img/campos1.JPEG" alt="Campos 1" /></div>
-      <div class="gallery-item"><img src="./assets/img/campos2.JPEG" alt="Campos 2" /></div>
-      <div class="gallery-item"><img src="./assets/img/campos3.JPEG" alt="Campos 3" /></div>
-      <div class="gallery-item"><img src="./assets/img/campos4.JPEG" alt="Campos 4" /></div>
-      <div class="gallery-item"><img src="./assets/img/campos5.JPEG" alt="Campos 5"/></div>
-      <div class="gallery-item"><video src="./assets/img/campos6.mp4" controls></video></div>
-      <div class="gallery-item"><img src="./assets/img/campos7.JPEG" alt="Campos 7" /></div>
-      <div class="gallery-item"><img src="./assets/img/campos8.JPEG" alt="Campos 8" /></div>
-      <div class="gallery-item"><img src="./assets/img/campos9.JPEG" alt="Campos 9" /></div>
-      <div class="gallery-item"><img src="./assets/img/campos10.JPEG" alt="Campos 10"/></div>
+      <h3 style="grid-column: 1 / -1; text-align: center;">Nossa Galeria - Campos</h3>
+      <div class="gallery-item-3"><img src="./assets/img/lugares/campos/campos1.JPEG" alt="Campos 1" /></div>
+      <div class="gallery-item-3"><img src="./assets/img/lugares/campos/campos2.JPEG" alt="Campos 2" /></div>
+      <div class="gallery-item-3"><img src="./assets/img/lugares/campos/campos3.JPEG" alt="Campos 3" /></div>
+      <div class="gallery-item-3"><img src="./assets/img/lugares/campos/campos4.JPEG" alt="Campos 4" /></div>
+      <div class="gallery-item-3"><img src="./assets/img/lugares/campos/campos5.JPEG" alt="Campos 5"/></div>
+      <div class="gallery-item-3"><video src="./assets/img/lugares/campos/campos6.mp4" controls></video></div>
+      <div class="gallery-item-3"><img src="./assets/img/lugares/campos/campos7.JPEG" alt="Campos 7" /></div>
+      <div class="gallery-item-3"><img src="./assets/img/lugares/campos/campos8.JPEG" alt="Campos 8" /></div>
+      <div class="gallery-item-3"><img src="./assets/img/lugares/campos/campos9.JPEG" alt="Campos 9" /></div>
+      <div class="gallery-item-3"><img src="./assets/img/lugares/campos/campos10.JPEG" alt="Campos 10"/></div>
+    </section>
+    <!-- Galeria Bertioga -->
+     <section id="galeria-bertioga" class="gallery" style="display: none;">
+      <h3 style="grid-column: 1 / -1; text-align: center;">Nossa Galeria - Bertioga</h3>
+      <div class="gallery-item-3"><img src="./assets/img/lugares/bertioga/bertioga1.JPEG" alt="Bertioga 1" /></div>
+      <div class="gallery-item-3"><img src="./assets/img/lugares/bertioga/bertioga2.JPEG" alt="Bertioga 2" /></div>
+      <div class="gallery-item-3"><img src="./assets/img/lugares/bertioga/bertioga3.JPEG" alt="Bertioga 3" /></div>
+      <div class="gallery-item-3"><img src="./assets/img/lugares/bertioga/bertioga4.JPEG" alt="Bertioga 4" /></div>
+      <div class="gallery-item-3"><img src="./assets/img/lugares/bertioga/bertioga5.JPEG" alt="Bertioga 5" /></div>
+      <div class="gallery-item-3"><img src="./assets/img/lugares/bertioga/bertioga6.JPEG" alt="Bertioga 6" /></div>
+      <div class="gallery-item-3"><img src="./assets/img/lugares/bertioga/bertioga7.JPEG" alt="Bertioga 7" /></div>
+      <div class="gallery-item-3"><video src="./assets/img/lugares/bertioga/bertioga8.MP4" controls></video></div>
+      <div class="gallery-item-3"><img src="./assets/img/lugares/bertioga/bertioga9.JPEG" alt="Bertioga 9" /></div>
+      <div class="gallery-item-3"><img src="./assets/img/lugares/bertioga/bertioga10.JPEG" alt="Bertioga 10" /></div>
+      <div class="gallery-item-3"><img src="./assets/img/lugares/bertioga/bertioga11.JPEG" alt="Bertioga 11" /></div>
+      <div class="gallery-item-3"><img src="./assets/img/lugares/bertioga/bertioga12.JPEG" alt="Bertioga 12" /></div>
+      <div class="gallery-item-3"><img src="./assets/img/lugares/bertioga/bertioga13.JPEG" alt="Bertioga 13" /></div>
+      <div class="gallery-item-3"><img src="./assets/img/lugares/bertioga/bertioga14.JPEG" alt="Bertioga 14" /></div>
+          <div class="gallery-item-3"><video src="./assets/img/lugares/bertioga/bertioga15.MP4" controls></video></div>
+      <div class="gallery-item-3"><img src="./assets/img/lugares/bertioga/bertioga16.JPG" alt="Bertioga 16" /></div>
+      <div class="gallery-item-3"><img src="./assets/img/lugares/bertioga/bertioga17.JPEG" alt="Bertioga 17" /></div>
+      <div class="gallery-item-3"><img src="./assets/img/lugares/bertioga/bertioga18.JPEG" alt="Bertioga 18" /></div>
+      <div class="gallery-item-3"><img src="./assets/img/lugares/bertioga/bertioga19.JPEG" alt="Bertioga 19" /></div>
+      <div class="gallery-item-3"><img src="./assets/img/lugares/bertioga/bertioga20.JPEG" alt="Bertioga 20" /></div>
+      <div class="gallery-item-3"><img src="./assets/img/lugares/bertioga/bertioga21.JPEG" alt="Bertioga 21" /></div>
+      <div class="gallery-item-3"><img src="./assets/img/lugares/bertioga/bertioga22.JPEG" alt="Bertioga 22" /></div>
+      <div class="gallery-item-3"><img src="./assets/img/lugares/bertioga/bertioga23.JPEG" alt="Bertioga 23" /></div>
+      <div class="gallery-item-3"><img src="./assets/img/lugares/bertioga/bertioga24.JPEG" alt="Bertioga 24" /></div>
+      <div class="gallery-item-3"><img src="./assets/img/lugares/bertioga/bertioga25.JPEG" alt="Bertioga 25" /></div>
+      <div class="gallery-item-3"><img src="./assets/img/lugares/bertioga/bertioga26.JPEG" alt="Bertioga 26" /></div>
+      <div class="gallery-item-3"><img src="./assets/img/lugares/bertioga/bertioga27.JPEG" alt="Bertioga 27" /></div>
+      <div class="gallery-item-3"><img src="./assets/img/lugares/bertioga/bertioga28.JPEG" alt="Bertioga 28" /></div>
+      <div class="gallery-item-3"><img src="./assets/img/lugares/bertioga/bertioga29.JPEG" alt="Bertioga 29" /></div>
+      <div class="gallery-item-3"><img src="./assets/img/lugares/bertioga/bertioga30.JPEG" alt="Bertioga 30" /></div>
+      <div class="gallery-item-3"><img src="./assets/img/lugares/bertioga/bertioga31.JPEG" alt="Bertioga 31" /></div>
+      <div class="gallery-item-3"><img src="./assets/img/lugares/bertioga/bertioga32.JPEG" alt="Bertioga 32" /></div>
+      <div class="gallery-item-3"><video src="./assets/img/lugares/bertioga/bertioga33.MP4" controls></video></div>
+      <div class="gallery-item-3"><video src="./assets/img/lugares/bertioga/bertioga34.MP4" controls></video></div>
+      <div class="gallery-item-3"><video src="./assets/img/lugares/bertioga/bertioga35.MP4" controls></video></div>
     </section>
   </main>
+
+  <section class="contact" style="justify-content:right;">
+    <div class="spotify-player">
+      <img class="cover" id="cover" src="./assets/img/bebeto.jpg" alt="Capa">
+      <div class="player-info">
+        <div class="track-details">
+          <span class="track-title" id="track-title">Bebeto - Água Marinha</span>
+          <div class="time">
+            <span id="current-time">0:00</span>
+            <span id="duration">0:00</span>
+          </div>
+        </div>
+        <input type="range" id="progress-bar" value="0" min="0" max="100">
+        <div class="controls">
+          <button id="prev-button">⏮</button>
+          <button id="play-pause-button">❚❚</button>
+          <button id="next-button">⏭</button>
+        </div>
+      </div>
+      <audio id="music-player"></audio>
+    </div>  
+  </section>
 
   <footer>
     <div class="socials">
@@ -67,6 +139,6 @@
     <p>&copy; 2026 Toda a Beleza de <a href="https://www.instagram.com/sarah_t1na/">Sarah</a>. Feito por <a href="https://www.instagram.com/sena_thegreat/">Gabriel</a>.</p>
   </footer>
 
-  <script src="./assets/js/nos.js"></script>
+  <script src="./assets/js/script.js"></script>
 </body>
 </html>
