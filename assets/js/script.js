@@ -526,4 +526,58 @@ document.addEventListener("DOMContentLoaded", () => {
       lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
     });
   }
+
+  // =========================================================
+// ANIMAÇÃO DOS DIVISORES <hr>
+// =========================================================
+
+  const dividers = document.querySelectorAll("hr");
+
+  dividers.forEach((hr) => {
+
+    hr.addEventListener("mouseenter", () => {
+      hr.classList.add("hr-active");
+    });
+
+    hr.addEventListener("mouseleave", () => {
+      hr.classList.remove("hr-active");
+    });
+
+  });
+
+  // =========================================================
+  // ANIMAÇÃO DA SEÇÃO "SOBRE SARAH"
+  // =========================================================
+
+  const aboutElements = document.querySelectorAll(
+    ".about-chapter, .about-highlight, .about-ocean, .about-final"
+  );
+
+  if (aboutElements.length > 0) {
+
+    const aboutObserver = new IntersectionObserver(
+      (entries, observer) => {
+
+        entries.forEach((entry) => {
+
+          if (entry.isIntersecting) {
+
+            entry.target.classList.add("about-visible");
+
+            observer.unobserve(entry.target);
+          }
+
+        });
+
+      },
+      {
+        threshold: 0.15
+      }
+    );
+
+    aboutElements.forEach((element) => {
+      aboutObserver.observe(element);
+    });
+
+  }
 });

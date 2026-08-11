@@ -4,17 +4,6 @@
   box-sizing: border-box;
 }
 
-/* :root {
-  --bg-color: #f7f7f7;
-  --text-color: #333;
-  --header-bg: linear-gradient(135deg, #fa5fff, #fa7bfe);
-  --card-bg: #fff;
-  --shadow-color: rgba(0, 0, 0, 0.1);
-  --shadow-hover: rgba(0, 0, 0, 0.2);
-  --section-bg: #ffffff;
-  --section-text: #333333;
-} */
-
 .beach-banner {
   margin-top: 20px;
   border-radius: 12px;
@@ -33,7 +22,7 @@
 
 
 :root {
-  --bg-color: #f0f9ff; /* azul bem claro */
+  --bg-color: #fff; /* azul bem claro */
   --text-color: #2c3e50; /* azul profundo */
   --header-bg: linear-gradient(183deg, #002fffbb, #0d35b634); /* azul do mar e sol */
   --card-bg: #ffffff;
@@ -58,7 +47,7 @@
 }
 
 body.dark-mode {
-  --bg-color: #140b0b; /* Preto com um toque bem sutil de vermelho/aquecido */
+  --bg-color: #180d0d; /* Preto com um toque bem sutil de vermelho/aquecido */
   --text-color: #f5e6e6; /* Branco levemente rosado para não cansar a vista */
   --header-bg: linear-gradient(135deg, #4a0e0e, #1a0505); /* Gradiente vinho escuro */
   --card-bg: #1c1111;
@@ -66,6 +55,7 @@ body.dark-mode {
   --shadow-hover: rgba(220, 20, 60, 0.45); /* Sombra vermelha vibrante ao passar o mouse */
   --section-bg: #180d0d;
   --section-text: #e8d5d5;
+  --hr-main: #e9cc6d;
 }
 
 body.dark-mode .theme-toggle {
@@ -323,6 +313,22 @@ width: 100%;
   object-fit: cover;
 }
 
+.gallery-item-3.foto-completa {
+    height: auto;
+    min-height: 300px;
+    overflow: hidden;
+    align-self: start;
+}
+
+.gallery-item-3.foto-completa img {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    max-height: none;
+    object-fit: contain;
+    display: block;
+}
+
 .about,
 .contact {
   padding: 60px 40px;
@@ -554,8 +560,641 @@ audio {
   background-color: #005dc1;
 }
 
+/* =========================================================
+   DIVISOR PERSONALIZADO
+   Claro = Mar 🌊
+   Escuro = Onça-pintada 🐆
+   ========================================================= */
+
+hr {
+  position: relative;
+  border: none;
+  width: 100%;
+  height: 24px;
+
+
+  /* IMPORTANTE:
+     o próprio HR não possui fundo */
+  background: transparent !important;
+
+  /* Cores do tema claro */
+  --hr-main: #0077b6;
+  --hr-light: #72d2f2;
+  --hr-dark: #005f8f;
+  --hr-glow: rgba(0, 174, 239, 0.25);
+  --hr-bg: var(--bg-color);
+
+  /* Símbolo do tema claro */
+  --hr-icon: "🌊";
+}
+
+
+/* =========================================================
+   LINHA
+   ========================================================= */
+
+hr::before {
+  content: "";
+
+  position: absolute;
+  left: 0;
+  top: 50%;
+
+  width: 100%;
+  height: 2px;
+
+  transform: translateY(-50%);
+
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--hr-light) 10%,
+    var(--hr-main) 30%,
+    var(--hr-dark) 50%,
+    var(--hr-main) 70%,
+    var(--hr-light) 90%,
+    transparent 100%
+  );
+
+  box-shadow:
+    0 0 5px var(--hr-glow);
+
+  transition:
+    height 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+
+/* =========================================================
+   ORNAMENTO CENTRAL
+   ========================================================= */
+
+hr::after {
+  content: var(--hr-icon);
+
+  position: absolute;
+  left: 50%;
+  top: 50%;
+
+  width: 42px;
+  height: 30px;
+
+  transform: translate(-50%, -50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 18px;
+
+  background: var(--hr-bg);
+
+  border: 0px solid var(--hr-light);
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 0 4px var(--hr-bg),
+    0 0 10px var(--hr-glow);
+
+  z-index: 2;
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+
+
+/* =========================================================
+   TEMA ESCURO — ONÇA
+   ========================================================= */
+
+body.dark-mode hr {
+  --hr-main: #e9cc6d;
+  --hr-light: #f6e6a2;
+  --hr-dark: #9b7618;
+  --hr-glow: rgba(233, 204, 109, 0.3);
+
+  --hr-bg: var(--bg-color);
+
+  --hr-icon: "🐆";
+}
+
+
+/* =========================================================
+   HOVER
+   ========================================================= */
+
+hr:hover::before {
+  height: 3px;
+
+  box-shadow:
+    0 0 7px var(--hr-glow),
+    0 0 14px var(--hr-glow);
+}
+
+hr:hover::after {
+  transform: translate(-50%, -50%) scale(1.08);
+
+  box-shadow:
+    0 0 0 4px var(--hr-bg),
+    0 0 15px var(--hr-glow);
+}
+/* =========================================================
+   BRILHO ANIMADO DO DIVISOR
+   ========================================================= */
+
+hr.hr-active::before {
+  animation: hrShine 1.2s ease-in-out;
+}
+
+@keyframes hrShine {
+  0% {
+    filter: brightness(1);
+  }
+
+  35% {
+    filter: brightness(1.8);
+  }
+
+  70% {
+    filter: brightness(1.25);
+  }
+
+  100% {
+    filter: brightness(1);
+  }
+}
+
+/* =========================================================
+   SOBRE SARAH — HOMENAGEM
+   ========================================================= */
+
+.about {
+  padding: 90px 25px;
+}
+
+.about-content {
+  width: min(900px, 100%);
+  margin: 0 auto;
+}
+
+
+/* ---------------------------------------------------------
+   CABEÇALHO
+   --------------------------------------------------------- */
+
+.about-label {
+  display: block;
+  text-align: center;
+
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+
+  color: #0077b6;
+
+  margin-bottom: 10px;
+}
+
+.about h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 35px;
+}
+
+
+/* ---------------------------------------------------------
+   INTRODUÇÃO
+   --------------------------------------------------------- */
+
+.about-intro {
+  max-width: 780px;
+  margin: 0 auto;
+
+  text-align: center;
+
+  font-size: 1.15rem;
+  line-height: 2;
+
+  color: var(--section-text);
+}
+
+
+/* ---------------------------------------------------------
+   PEQUENO DIVISOR
+   --------------------------------------------------------- */
+
+.about-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 55px 0;
+}
+
+.about-divider::before,
+.about-divider::after {
+  content: "";
+
+  height: 1px;
+  width: 100px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #65c7e8
+  );
+}
+
+.about-divider::after {
+  background: linear-gradient(
+    90deg,
+    #65c7e8,
+    transparent
+  );
+}
+
+.about-divider span {
+  margin: 0 18px;
+
+  color: #00a6c7;
+  font-size: 0.9rem;
+}
+
+
+/* ---------------------------------------------------------
+   CAPÍTULOS
+   --------------------------------------------------------- */
+
+.about-chapter {
+  display: grid;
+  grid-template-columns: 70px 1fr;
+
+  gap: 25px;
+
+  margin-bottom: 65px;
+}
+
+.chapter-number {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+
+  color: #00a6c7;
+
+  padding-top: 7px;
+
+  opacity: 0.8;
+}
+
+.about-chapter h3 {
+  font-size: 1.55rem;
+
+  margin-bottom: 20px;
+
+  color: var(--section-text);
+}
+
+.about-chapter p {
+  font-size: 1rem;
+  line-height: 1.95;
+
+  color: var(--section-text);
+
+  margin-bottom: 22px;
+}
+
+.about-chapter p:last-child {
+  margin-bottom: 0;
+}
+
+
+/* ---------------------------------------------------------
+   DESTAQUES
+   --------------------------------------------------------- */
+
+.about-highlight {
+  position: relative;
+
+  max-width: 700px;
+
+  margin: 70px auto;
+  padding: 30px 40px;
+
+  text-align: center;
+
+  border-left: 2px solid #65c7e8;
+  border-right: 2px solid #65c7e8;
+
+  background: rgba(101, 199, 232, 0.05);
+
+  border-radius: 12px;
+}
+
+.highlight-icon {
+  display: block;
+
+  font-size: 1.5rem;
+
+  color: #00a6c7;
+
+  margin-bottom: 12px;
+}
+
+.about-highlight p {
+  margin: 0;
+
+  font-size: 1.2rem;
+  line-height: 1.8;
+
+  font-style: italic;
+}
+
+
+/* ---------------------------------------------------------
+   ÁGUA-MARINHA
+   --------------------------------------------------------- */
+
+.about-ocean {
+  display: flex;
+  align-items: center;
+
+  gap: 30px;
+
+  margin: 80px 0;
+
+  padding: 35px;
+
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(101, 199, 232, 0.08),
+      transparent
+    );
+
+  border: 1px solid rgba(101, 199, 232, 0.25);
+
+  box-shadow:
+    0 8px 25px var(--shadow-color);
+}
+
+.ocean-symbol {
+  flex-shrink: 0;
+
+  width: 65px;
+  height: 65px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: rgba(101, 199, 232, 0.12);
+
+  font-size: 1.8rem;
+}
+
+.about-ocean h3 {
+  margin-bottom: 15px;
+
+  font-size: 1.4rem;
+}
+
+.about-ocean p {
+  line-height: 1.9;
+
+  margin-bottom: 15px;
+}
+
+.about-ocean .ocean-quote {
+  margin: 0;
+
+  font-style: italic;
+
+  color: #0077b6;
+
+  font-weight: 600;
+}
+
+
+/* ---------------------------------------------------------
+   DESTAQUE FINAL
+   --------------------------------------------------------- */
+
+.about-highlight-gold {
+  border-color: #e9cc6d;
+
+  background: rgba(233, 204, 109, 0.05);
+}
+
+.about-highlight-gold .highlight-icon {
+  color: #d4a72c;
+}
+
+
+/* ---------------------------------------------------------
+   FINAL DA HOMENAGEM
+   --------------------------------------------------------- */
+
+.about-final {
+  max-width: 750px;
+
+  margin: 90px auto 20px;
+
+  text-align: center;
+}
+
+.final-symbol {
+  display: block;
+
+  font-size: 2rem;
+
+  color: #e9cc6d;
+
+  margin-bottom: 25px;
+}
+
+.about-final p {
+  font-size: 1.15rem;
+  line-height: 2;
+
+  margin-bottom: 20px;
+}
+
+.about-final strong {
+  color: #0077b6;
+}
+
+.final-signature {
+  display: block;
+
+  margin-top: 40px;
+
+  font-size: 0.9rem;
+
+  font-style: italic;
+
+  color: var(--section-text);
+
+  opacity: 0.7;
+}
+
+
+/* =========================================================
+   TEMA ESCURO
+   ========================================================= */
+
+body.dark-mode .about-label {
+  color: #e9cc6d;
+}
+
+body.dark-mode .about-divider::before {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #e9cc6d
+  );
+}
+
+body.dark-mode .about-divider::after {
+  background: linear-gradient(
+    90deg,
+    #e9cc6d,
+    transparent
+  );
+}
+
+body.dark-mode .about-divider span {
+  color: #e9cc6d;
+}
+
+body.dark-mode .chapter-number {
+  color: #e9cc6d;
+}
+
+body.dark-mode .about-highlight {
+  border-color: #e9cc6d;
+
+  background: rgba(233, 204, 109, 0.04);
+}
+
+body.dark-mode .highlight-icon {
+  color: #e9cc6d;
+}
+
+body.dark-mode .about-ocean {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(233, 204, 109, 0.06),
+      transparent
+    );
+
+  border-color: rgba(233, 204, 109, 0.2);
+}
+
+body.dark-mode .about-ocean .ocean-quote {
+  color: #e9cc6d;
+}
+
+body.dark-mode .about-final strong {
+  color: #e9cc6d;
+}
+/* =========================================================
+   ANIMAÇÃO DE ENTRADA
+   ========================================================= */
+
+.about-chapter,
+.about-highlight,
+.about-ocean,
+.about-final {
+  opacity: 0;
+
+  transform: translateY(30px);
+
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+.about-visible {
+  opacity: 1;
+
+  transform: translateY(0);
+}
+
+/* =========================================================
+   RESPONSIVIDADE
+   ========================================================= */
 
 @media (max-width: 768px) {
+
+  .about {
+    padding: 65px 20px;
+  }
+
+  .about h2 {
+    font-size: 2rem;
+  }
+
+  .about-intro {
+    font-size: 1rem;
+    line-height: 1.85;
+  }
+
+  .about-chapter {
+    grid-template-columns: 1fr;
+
+    gap: 8px;
+
+    margin-bottom: 50px;
+  }
+
+  .chapter-number {
+    padding: 0;
+  }
+
+  .about-chapter h3 {
+    font-size: 1.3rem;
+  }
+
+  .about-chapter p {
+    font-size: 0.95rem;
+    line-height: 1.85;
+  }
+
+  .about-highlight {
+    padding: 25px 20px;
+
+    margin: 55px auto;
+  }
+
+  .about-highlight p {
+    font-size: 1rem;
+  }
+
+  .about-ocean {
+    flex-direction: column;
+
+    text-align: center;
+
+    padding: 28px 22px;
+  }
+
+  .about-final {
+    margin-top: 65px;
+  }
+
+  .about-final p {
+    font-size: 1rem;
+    line-height: 1.85;
+  }
+
   .spotify-player {
     right: 20px;
     bottom: 20px;
