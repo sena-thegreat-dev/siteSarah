@@ -1195,17 +1195,85 @@ body.dark-mode .about-final strong {
     line-height: 1.85;
   }
 
-  .spotify-player {
-    right: 20px;
-    bottom: 20px;
-    max-width: 90%;
-    flex-direction: column;
-    align-items: flex-start;
-  }
   
-  #play-pause-button {
-    align-self: center;
-  }
+/* =========================================================
+   PLAYER DE MÚSICA — MOBILE
+========================================================= */
+
+.spotify-player {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  right: 0;
+  bottom: 0;
+
+  padding: 24px;
+  border-radius: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 18px;
+}
+
+.spotify-player .cover {
+  width: 110px;
+  height: 110px;
+  align-self: center;
+  border-radius: 10px;
+}
+
+.spotify-player .player-info {
+  width: 100%;
+  min-width: 0;
+}
+
+.track-details {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+}
+
+.track-title {
+  width: 100%;
+  font-size: 1.1rem;
+  line-height: 1.4;
+}
+
+.time {
+  position: static;
+  width: 100%;
+  margin-top: 5px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#progress-bar {
+  width: 100%;
+  display: block;
+}
+
+.controls {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+}
+
+.controls button {
+  flex-shrink: 0;
+}
+
+#play-pause-button {
+  align-self: center;
+  flex-shrink: 0;
+}
+
   header {
     flex-direction: row; /* Mantém logo e botão na mesma linha */
     justify-content: space-between;
@@ -1301,14 +1369,6 @@ body.dark-mode .about-final strong {
     margin-top: 5px;
   }
   
-  /* Ajuste para o player não ficar gigante no celular */
-  .spotify-player {
-    width: 100%;
-    max-width: 100%;
-    right: 0;
-    bottom: 0;
-    border-radius: 0; /* Opcional: fica elegante em tela cheia no mobile */
-  }
 }
 @media (max-width: 600px) {
   .gallery {
