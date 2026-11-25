@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nossas Viagens</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
+
 <body>
   <header class="header">
     <div class="logo">Eu & Você, Sempre</div>
@@ -23,7 +25,7 @@
     </nav>
   </header>
 
-  
+
   <section class="hero">
     <h1>Casal Perfeito</h1>
     <p>"E te amar, é tudo que eu mais queria, realizar todas as suas fantasias <br>
@@ -32,12 +34,25 @@
     <div class="beach-banner">
       <img src="./assets/img/banner2.png" alt="Nosso Banner" />
     </div>
-  </section>  
+  </section>
   <hr>
   <main>
+    <section id="nos" class="about">
+      <h2>Apenas NÓS</h2>
+      <p style="margin-bottom: 2rem;place-self: center;">Eu & Você, SEMPRE</p>
+
+      <div class="viagens-container">
+        <article class="viagem-card" data-destino="tranca">
+          <h3>Primeira trança juntos</h3>
+          <p>21/10/26</p>
+          <button class="abrir-galeria" data-galeria="galeria-trancas">Ver Fotos</button>
+        </article>
+      </div>
+    </section>
+
     <section id="viagens" class="about">
       <h2>Nossas Viagens</h2>
-      <p style="margin-bottom: 2rem;">Cada lugar, um capítulo da nossa história 💙</p>
+      <p style="margin-bottom: 2rem;place-self: center;">Cada lugar, um capítulo da nossa história 💙</p>
 
       <div class="viagens-container">
         <article class="viagem-card" data-destino="campos">
@@ -51,46 +66,63 @@
           <p>25/07/26 - 26/07/26</p>
           <button class="abrir-galeria" data-galeria="galeria-bertioga">Ver Fotos</button>
         </article>
-  
+
       </div>
     </section>
-
+    <!-- GALERIAS -->
+    <!-- Galeria Nós -->
+    <section id="galeria-trancas" class="gallery" style="display: none;">
+      <h3 style="grid-column: 1 / -1; text-align: center;">Nossa Galeria - NÓS</h3>
+      <div class="gallery-item-3 foto-completa"><img src="./assets/img/nos/trancas/1.JPEG" /></div>
+      <div class="gallery-item-3 foto-completa"><img src="./assets/img/nos/trancas/2.JPEG" /></div>
+      <div class="gallery-item-3 foto-completa"><img src="./assets/img/nos/trancas/3.JPEG" /></div>
+      <div class="gallery-item-3 foto-completa"><img src="./assets/img/nos/trancas/4.JPEG" /></div>
+      <div class="gallery-item-3 foto-completa"><img src="./assets/img/nos/trancas/5.JPEG" /></div>
+      <div class="gallery-item-3 foto-completa"><img src="./assets/img/nos/trancas/6.JPEG" /></div>
+      <div class="gallery-item-3 foto-completa"><img src="./assets/img/nos/trancas/7.JPEG" /></div>
+      <div class="gallery-item-3 foto-completa"><img src="./assets/img/nos/trancas/8.JPEG" /></div>
+      <div class="gallery-item-3 foto-completa"><img src="./assets/img/nos/trancas/9.JPEG" /></div>
+      <div class="gallery-item-3 foto-completa"><img src="./assets/img/nos/trancas/10.JPEG" /></div>
+      <div class="gallery-item-3 foto-completa"><img src="./assets/img/nos/trancas/11.JPEG" /></div>
+      <div class="gallery-item-3 foto-completa"><img src="./assets/img/nos/trancas/12.JPEG" /></div>
+    </section>
     <!-- Galeria Campos -->
     <section id="galeria-campos" class="gallery" style="display: none;">
       <h3 style="grid-column: 1 / -1; text-align: center;">Nossa Galeria - Campos</h3>
-      <div class="gallery-item-3"><img src="./assets/img/lugares/campos/campos1.JPEG"/></div>
-      <div class="gallery-item-3"><img src="./assets/img/lugares/campos/campos2.JPEG"/></div>
-      <div class="gallery-item-3"><img src="./assets/img/lugares/campos/campos4.JPEG"/></div>
+      <div class="gallery-item-3"><img src="./assets/img/lugares/campos/campos1.JPEG" /></div>
+      <div class="gallery-item-3"><img src="./assets/img/lugares/campos/campos2.JPEG" /></div>
+      <div class="gallery-item-3"><img src="./assets/img/lugares/campos/campos4.JPEG" /></div>
       <div class="gallery-item-3"><img src="./assets/img/lugares/campos/campos5.JPEG"></div>
       <div class="gallery-item-3"><video src="./assets/img/lugares/campos/campos6.mp4" controls></video></div>
-      <div class="gallery-item-3"><img src="./assets/img/lugares/campos/campos7.JPEG"/></div>
-      <div class="gallery-item-3"><img src="./assets/img/lugares/campos/campos8.JPEG"/></div>
-      <div class="gallery-item-3"><img src="./assets/img/lugares/campos/campos9.JPEG"/></div>
-      <div class="gallery-item-3 foto-completa"><img src="./assets/img/lugares/campos/campos11.JPEG"/></div>
-      <div class="gallery-item-3 foto-completa"><img src="./assets/img/lugares/campos/campos12.JPEG"/></div>
-      <div class="gallery-item-3 foto-completa"><img src="./assets/img/lugares/campos/campos13.JPEG"/></div>
-      <div class="gallery-item-3 foto-completa"><img src="./assets/img/lugares/campos/campos14.JPEG"/></div>
+      <div class="gallery-item-3"><img src="./assets/img/lugares/campos/campos7.JPEG" /></div>
+      <div class="gallery-item-3"><img src="./assets/img/lugares/campos/campos8.JPEG" /></div>
+      <div class="gallery-item-3"><img src="./assets/img/lugares/campos/campos9.JPEG" /></div>
+      <div class="gallery-item-3 foto-completa"><img src="./assets/img/lugares/campos/campos11.JPEG" /></div>
+      <div class="gallery-item-3 foto-completa"><img src="./assets/img/lugares/campos/campos12.JPEG" /></div>
+      <div class="gallery-item-3 foto-completa"><img src="./assets/img/lugares/campos/campos13.JPEG" /></div>
+      <div class="gallery-item-3 foto-completa"><img src="./assets/img/lugares/campos/campos14.JPEG" /></div>
     </section>
     <!-- Galeria Bertioga -->
-     <section id="galeria-bertioga" class="gallery" style="display: none;">
+    <section id="galeria-bertioga" class="gallery" style="display: none;">
       <h3 style="grid-column: 1 / -1; text-align: center;">Nossa Galeria - Bertioga</h3>
       <div class="gallery-item-3 foto-completa"><img src="./assets/img/lugares/bertioga/bertioga2.JPEG" /></div>
       <div class="gallery-item-3 foto-completa"><img src="./assets/img/lugares/bertioga/bertioga3.JPEG" /></div>
       <div class="gallery-item-3 foto-completa"><img src="./assets/img/lugares/bertioga/bertioga4.JPEG" /></div>
       <div class="gallery-item-3 foto-completa"><img src="./assets/img/lugares/bertioga/bertioga5.JPEG" /></div>
-      <div class="gallery-item-3"><img src="./assets/img/lugares/bertioga/bertioga1.JPEG"/></div>
-      <div class="gallery-item-3"><img src="./assets/img/lugares/bertioga/bertioga6.JPEG"/></div>
-      <div class="gallery-item-3"><img src="./assets/img/lugares/bertioga/bertioga7.JPEG"/></div>
-      <div class="gallery-item-3"><img src="./assets/img/lugares/bertioga/bertioga10.JPG"/></div>
-      <div class="gallery-item-3"><img src="./assets/img/lugares/bertioga/bertioga11.JPEG"/></div>
-      <div class="gallery-item-3"><img src="./assets/img/lugares/bertioga/bertioga12.JPEG"/></div>            
-      <div class="gallery-item-3"><img src="./assets/img/lugares/bertioga/bertioga13.JPEG"/></div>
-      <div class="gallery-item-3"><img src="./assets/img/lugares/bertioga/bertioga14.JPEG"/></div>
-      <div class="gallery-item-3"><img src="./assets/img/lugares/bertioga/bertioga15.JPEG"/></div>
-      <div class="gallery-item-3"><img src="./assets/img/lugares/bertioga/bertioga16.JPEG"/></div>
-      <div class="gallery-item-3"><video src="./assets/img/lugares/bertioga/bertioga17.MP4"controls></video></div>
-      <div class="gallery-item-3"><video src="./assets/img/lugares/bertioga/bertioga18.MP4"controls></video></div>
+      <div class="gallery-item-3"><img src="./assets/img/lugares/bertioga/bertioga1.JPEG" /></div>
+      <div class="gallery-item-3"><img src="./assets/img/lugares/bertioga/bertioga6.JPEG" /></div>
+      <div class="gallery-item-3"><img src="./assets/img/lugares/bertioga/bertioga7.JPEG" /></div>
+      <div class="gallery-item-3"><img src="./assets/img/lugares/bertioga/bertioga10.JPG" /></div>
+      <div class="gallery-item-3"><img src="./assets/img/lugares/bertioga/bertioga11.JPEG" /></div>
+      <div class="gallery-item-3"><img src="./assets/img/lugares/bertioga/bertioga12.JPEG" /></div>
+      <div class="gallery-item-3"><img src="./assets/img/lugares/bertioga/bertioga13.JPEG" /></div>
+      <div class="gallery-item-3"><img src="./assets/img/lugares/bertioga/bertioga14.JPEG" /></div>
+      <div class="gallery-item-3"><img src="./assets/img/lugares/bertioga/bertioga15.JPEG" /></div>
+      <div class="gallery-item-3"><img src="./assets/img/lugares/bertioga/bertioga16.JPEG" /></div>
+      <div class="gallery-item-3"><video src="./assets/img/lugares/bertioga/bertioga17.MP4" controls></video></div>
+      <div class="gallery-item-3"><video src="./assets/img/lugares/bertioga/bertioga18.MP4" controls></video></div>
     </section>
+    <!--------------->
   </main>
 
   <hr>
@@ -114,16 +146,18 @@
         </div>
       </div>
       <audio id="music-player"></audio>
-    </div>  
+    </div>
   </section>
 
   <footer>
     <div class="socials">
       <a href="https://www.instagram.com/sarah_t1na/"><i class="fab fa-instagram"></i></a>
     </div>
-    <p>&copy; 2026 Toda a Beleza de <a href="https://www.instagram.com/sarah_t1na/">Sarah</a>. Feito por <a href="https://www.instagram.com/sena_thegreat/">Gabriel</a>.</p>
+    <p>&copy; 2026 Toda a Beleza de <a href="https://www.instagram.com/sarah_t1na/">Sarah</a>. Feito por <a
+        href="https://www.instagram.com/sena_thegreat/">Gabriel</a>.</p>
   </footer>
 
   <script src="./assets/js/script.js"></script>
 </body>
+
 </html>
